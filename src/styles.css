@@ -5,5 +5,5 @@
 
 
 .active {
-@apply bg-lightDark text-white border-t-[3px] border-primary;
+@apply bg-lightDark text-white border-t-[3px] border-primary !opacity-100;
 }
