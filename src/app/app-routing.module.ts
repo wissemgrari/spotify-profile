@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const navigationRoutes: Routes = [
+const routes: Routes = [
   // { path: '', component: ProfileComponent },
   // { path: 'artists', component: ArtistsComponent },
   // { path: 'tracks', component: TracksComponent },
@@ -10,7 +10,7 @@ const navigationRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(navigationRoutes)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class NavigationRoutingModule {}
+export class AppRoutingModule {}

@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NavigationModule } from './components/navigation/navigation.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CoreModule, NavigationModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, NavigationModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
