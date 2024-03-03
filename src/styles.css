@@ -12,3 +12,7 @@
 .active {
 @apply bg-lightDark text-white border-t-[3px] border-primary !opacity-100;
 }
+
+.container {
+  @apply py-10 px-5;
+}
