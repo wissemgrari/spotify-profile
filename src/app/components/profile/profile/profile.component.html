@@ -1,4 +1,4 @@
-<div class="space-y-16">
+<div class="space-y-20">
   <div class="flex flex-col justify-center items-center gap-y-8">
     <img class="w-36 h-36 rounded-full object-cover"
       src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
@@ -21,8 +21,11 @@
     <app-button title="Logout" />
   </div>
   <!-- Top Artists -->
-  <div class="flex items-center justify-between">
-    <h2 class="text-white text-lg font-bold">Top Artists of All Time</h2>
-    <app-button title="see more" />
+  <div class="flex flex-col gap-y-5">
+    <div class="flex items-center justify-between">
+      <h2 class="text-white text-lg font-bold">Top Artists of All Time</h2>
+      <app-button title="see more" />
+    </div>
+    <top-artists />
   </div>
 </div>
