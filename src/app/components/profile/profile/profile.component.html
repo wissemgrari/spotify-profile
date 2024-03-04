@@ -1,4 +1,4 @@
-<div class="w-full space-y-10">
+<div class="w-full">
   <div class="flex flex-col justify-center items-center gap-y-8 mb-20">
     <img class="w-36 h-36 rounded-full object-cover"
       src="https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
@@ -6,34 +6,36 @@
     <h1 class="capitalize text-white text-3xl md:text-4xl font-bold">Elon Musk</h1>
     <div class="flex items-center gap-x-10">
       <div class="flex flex-col items-center gap-y-1">
-        <span class="text-primary font-bold">1.2k</span>
-        <span class="text-white/50 uppercase text-xs font-medium tracking-[.2em]">Followers</span>
+        <span class="text-primary font-bold md:text-lg">1.2k</span>
+        <span class="text-white/50 uppercase text-xs font-normal tracking-[.2em]">Followers</span>
       </div>
       <div class="flex flex-col items-center gap-y-1">
-        <span class="text-primary font-bold">20</span>
-        <span class="text-white/50 uppercase text-xs font-medium tracking-[.2em]">Following</span>
+        <span class="text-primary font-bold md:text-lg">20</span>
+        <span class="text-white/50 uppercase text-xs font-normal tracking-[.2em]">Following</span>
       </div>
       <div class="flex flex-col items-center gap-y-1">
-        <span class="text-primary font-bold">14</span>
-        <span class="text-white/50 uppercase text-xs font-medium tracking-[.2em]">Playlists</span>
+        <span class="text-primary font-bold md:text-lg">14</span>
+        <span class="text-white/50 uppercase text-xs font-normal tracking-[.2em]">Playlists</span>
       </div>
     </div>
     <app-button title="Logout" />
   </div>
-  <!-- Top Artists -->
-  <div class="flex flex-col gap-y-5">
-    <div class="flex items-center justify-between">
-      <h2 class="text-white text-base md:text-lg font-bold">Top Artists of All Time</h2>
-      <app-button title="see more" />
+  <div class="grid items-center gap-y-12 gap-x-10 lg:gap-x-32 md:grid-cols-2">
+    <!-- Top Artists -->
+    <div class="flex flex-col gap-y-5">
+      <div class="flex items-center justify-between">
+        <h2 class="text-white text-base md:text-lg lg:text-2xl font-bold">Top Artists of All Time</h2>
+        <app-button title="see more" />
+      </div>
+      <top-artists />
     </div>
-    <top-artists />
-  </div>
-  <!-- Top Tracks -->
-  <div class="flex flex-col gap-y-5">
-    <div class="flex items-center justify-between">
-      <h2 class="text-white text-base md:text-lg font-bold">Top Tracks of All Time</h2>
-      <app-button title="see more" />
+    <!-- Top Tracks -->
+    <div class="flex flex-col gap-y-5">
+      <div class="flex items-center justify-between">
+        <h2 class="text-white text-base md:text-lg lg:text-2xl font-bold">Top Tracks of All Time</h2>
+        <app-button title="see more" />
+      </div>
+      <top-tracks />
     </div>
-    <top-tracks />
   </div>
 </div>
