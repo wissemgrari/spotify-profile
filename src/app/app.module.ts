@@ -7,6 +7,7 @@ import { NavigationModule } from './components/navigation/navigation.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ProfileModule } from './components/profile/profile.module';
 import { ArtistsModule } from './components/artists/artists.module';
+import { TracksModule } from './components/tracks/tracks.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,8 @@ import { ArtistsModule } from './components/artists/artists.module';
     CoreModule,
     NavigationModule,
     ProfileModule,
-    ArtistsModule
+    ArtistsModule,
+    TracksModule
   ],
   bootstrap: [AppComponent],
 })
