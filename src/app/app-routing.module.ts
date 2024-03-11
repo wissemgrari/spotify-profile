@@ -4,13 +4,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ArtistsComponent } from './components/artists/artists.component';
 import { TracksComponent } from './components/tracks/tracks.component';
 import { RecentComponent } from './components/recent/recent.component';
+import {PlaylistsComponent} from "./components/playlists/playlists.component";
 
 const routes: Routes = [
   { path: '', component: ProfileComponent },
   { path: 'artists', component: ArtistsComponent },
   { path: 'tracks', component: TracksComponent },
   { path: 'recent', component: RecentComponent },
-  // { path: 'playlists', component: PlaylistsComponent },
+  { path: 'playlists', component: PlaylistsComponent },
 ];
 
 @NgModule({
