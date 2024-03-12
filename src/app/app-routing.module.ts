@@ -5,9 +5,11 @@ import { ArtistsComponent } from './components/artists/artists.component';
 import { TracksComponent } from './components/tracks/tracks.component';
 import { RecentComponent } from './components/recent/recent.component';
 import {PlaylistsComponent} from "./components/playlists/playlists.component";
+import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
   { path: '', component: ProfileComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'artists', component: ArtistsComponent },
   { path: 'tracks', component: TracksComponent },
   { path: 'recent', component: RecentComponent },

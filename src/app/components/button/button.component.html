@@ -1,4 +1,7 @@
 <button (click)="click()"
-  class="w-max px-7 py-3 rounded-full border border-white text-white group hover:bg-white transition-all duration-300 flex justify-center items-center">
-  <span class="uppercase text-xs font-bold group-hover:text-dark tracking-widest transition duration-300">{{ title }}</span>
+        [ngClass]="variant === 'filled' ? 'bg-primary border-primary hover:bg-primary/80' : 'bg-transparent border-white hover:bg-white'"
+        class="w-max px-7 py-3 rounded-full border text-white group transition-all duration-300 flex justify-center items-center">
+  <span
+    [ngClass]="variant === 'filled' ? 'group-hover:text-white' : 'group-hover:text-dark'"
+    class="uppercase text-xs font-bold tracking-widest transition duration-300">{{ title }}</span>
 </button>

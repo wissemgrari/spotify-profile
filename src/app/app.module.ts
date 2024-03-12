@@ -10,6 +10,7 @@ import {ArtistsModule} from './components/artists/artists.module';
 import {TracksModule} from './components/tracks/tracks.module';
 import {RecentModule} from './components/recent/recent.module';
 import {PlaylistsModule} from "./components/playlists/playlists.module";
+import {LoginModule} from "./components/login/login.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import {PlaylistsModule} from "./components/playlists/playlists.module";
     ArtistsModule,
     TracksModule,
     RecentModule,
-    PlaylistsModule
+    PlaylistsModule,
+    LoginModule
   ],
   bootstrap: [AppComponent],
 })
