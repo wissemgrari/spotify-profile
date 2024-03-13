@@ -1,4 +1,6 @@
-server.port=5000
+server:
+  port: 5000
 
-CLIENT_ID=923c4dc778214eeab445bfd1c8a559ba
-CLIENT_SECRET=03bc67249df8424ab812aafd54651f64
+spotify:
+  client_id: ${CLIENT_ID}
+  client_secret: ${CLIENT_SECRET}
