@@ -11,12 +11,14 @@ import {TracksModule} from './components/tracks/tracks.module';
 import {RecentModule} from './components/recent/recent.module';
 import {PlaylistsModule} from "./components/playlists/playlists.module";
 import {LoginModule} from "./components/login/login.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CoreModule,
     NavigationModule,
     ProfileModule,
