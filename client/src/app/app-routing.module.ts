@@ -6,14 +6,16 @@ import { TracksComponent } from './components/tracks/tracks.component';
 import { RecentComponent } from './components/recent/recent.component';
 import {PlaylistsComponent} from "./components/playlists/playlists.component";
 import {LoginComponent} from "./components/login/login.component";
+import { authGuard } from "./guards/auth.guard";
+import { loggedInAuthGuard } from "./guards/logged-in.auth.guard";
 
 const routes: Routes = [
-  { path: '', component: ProfileComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'artists', component: ArtistsComponent },
-  { path: 'tracks', component: TracksComponent },
-  { path: 'recent', component: RecentComponent },
-  { path: 'playlists', component: PlaylistsComponent },
+  { path: '', component: ProfileComponent, canActivate: [authGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [loggedInAuthGuard] },
+  { path: 'artists', component: ArtistsComponent, canActivate: [authGuard] },
+  { path: 'tracks', component: TracksComponent, canActivate: [authGuard] },
+  { path: 'recent', component: RecentComponent, canActivate: [authGuard] },
+  { path: 'playlists', component: PlaylistsComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({
