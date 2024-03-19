@@ -2,9 +2,11 @@
   <div class="relative img-container">
     <img [src]="artist.image" alt="artist picture"
       class="w-12 h-12 rounded-full object-cover">
-    <div class="overlay">
+    <a class="overlay" [href]="artist.url" target="_blank">
       <img src="/assets/icons/info.svg" class="w-5" alt="info">
-    </div>
+    </a>
   </div>
-  <p class="text-white group-hover:underline">{{ artist.name }}</p>
+  <a [href]="artist.url" target="_blank">
+    <p class="text-white group-hover:underline">{{ artist.name }}</p>
+  </a>
 </div>

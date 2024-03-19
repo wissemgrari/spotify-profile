@@ -12,6 +12,15 @@ import { RecentModule } from './components/recent/recent.module';
 import { PlaylistsModule } from "./components/playlists/playlists.module";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginModule } from "./components/login/login.module";
+import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from "ngx-ui-loader";
+
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  fgsColor: "#1db954",
+  hasProgressBar: false,
+  overlayColor: "#181818",
+  fgsType: SPINNER.rectangleBouncePulseOut,
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +35,8 @@ import { LoginModule } from "./components/login/login.module";
     TracksModule,
     RecentModule,
     PlaylistsModule,
-    LoginModule
+    LoginModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
   ],
   bootstrap: [AppComponent],
 })

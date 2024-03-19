@@ -1,6 +1,9 @@
-<main class="bg-lightDark w-full h-[100dvh] grid grid-rows-[auto_70px] md:grid-rows-1 md:grid-cols-[100px_auto]">
+<main [ngClass]="!(isLoggedIn | async) ? '!grid-rows-1 !grid-cols-1' : ''"
+      class="bg-lightDark w-full h-[100dvh] grid grid-rows-[auto_70px] md:grid-rows-1 md:grid-cols-[100px_auto]">
   <div class="wrapper">
     <router-outlet></router-outlet>
+    <ngx-ui-loader [loaderId]="'in-app-loader'"></ngx-ui-loader>
   </div>
-  <navbar />
+  <navbar *ngIf="isLoggedIn | async"/>
 </main>
+<ngx-ui-loader></ngx-ui-loader>

@@ -7,6 +7,7 @@ import { TrackComponent } from '../components/track/track.component';
 import { TopTracksComponent } from '../components/top-tracks/top-tracks.component';
 import { TopArtistsComponent } from '../components/top-artists/top-artists.component';
 import { TopArtistComponent } from '../components/top-artist/top-artist.component';
+import { DurationPipe } from "../pipes/duration.pipe";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TopArtistComponent } from '../components/top-artist/top-artist.componen
     TopTracksComponent,
     TrackComponent,
     ButtonComponent,
+    DurationPipe,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
@@ -27,6 +29,7 @@ import { TopArtistComponent } from '../components/top-artist/top-artist.componen
     TopTracksComponent,
     TrackComponent,
     ButtonComponent,
+    DurationPipe
   ],
 })
 export class SharedModule {}
