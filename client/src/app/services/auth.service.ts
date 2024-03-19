@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { map, Observable, tap } from "rxjs";
+import { BehaviorSubject, map, Observable, tap } from "rxjs";
 import { Router } from "@angular/router";
 
 interface AuthUrlResponse {
@@ -21,6 +21,7 @@ interface TokenResponse {
 })
 export class AuthService {
   private token: string = localStorage.getItem('token') || '';
+  private loggedIn = new BehaviorSubject<boolean>(this.getToken() ? true : false);
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -40,17 +41,28 @@ export class AuthService {
       tap((response: TokenResponse) => {
         this.token = response.access_token;
         localStorage.setItem('token', this.token);
+        this.loggedIn.next(true);
       })
     );
   }
 
-
   logout() {
     localStorage.removeItem('token');
+    this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }
 
   getToken() {
     return this.token;
   }
+
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
+  }
+
+  isValidToken() {
+    //TODO: check if token is expired
+    return true;
+  }
+
 }

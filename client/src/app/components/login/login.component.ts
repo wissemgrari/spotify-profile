@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
   selector: 'login',
@@ -11,13 +12,13 @@ export class LoginComponent implements OnInit{
   isLoading = false;
   error: string | null = null;
 
-  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) {
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router, private ngxService: NgxUiLoaderService) {
   }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
+      this.ngxService.start()
       if (params['code'] !== undefined) {
-        console.log(params['code']);
         this.authService.requestToken(params['code']).subscribe({
           next: (response) => {
             this.router.navigate(['/']);
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit{
           }
         });
       }
+      this.ngxService.stop()
     });
   }
 

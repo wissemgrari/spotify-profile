@@ -1,15 +1,15 @@
 <div class="grid grid-cols-[48px,minmax(0,1fr)] items-center gap-x-5 px-2 py-3 cursor-pointer group">
   <div class="relative w-full h-12 img-container">
     <img [src]="track.image" class="w-full object-cover" alt="track picture">
-    <div class="overlay">
+    <a class="overlay" [href]="track.url" target="_blank">
       <img src="/assets/icons/info.svg" class="w-5" alt="info">
-    </div>
+    </a>
   </div>
   <div class="flex justify-between text-white/50">
     <div class="w-full">
       <div class="flex items-center justify-between">
-        <span class="block text-base text-white group-hover:underline">{{ track.name }}</span>
-        <span class="text-xs md:text-sm">{{track.duration}}</span>
+        <a [href]="track.url" target="_blank"><span class="block text-base text-white group-hover:underline">{{ track.name }}</span></a>
+        <span class="text-xs md:text-sm">{{track.duration | duration}}</span>
       </div>
       <span class="block text-sm overflow-hidden whitespace-nowrap text-ellipsis">
         {{track.artist}}
