@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './components/profile/profile.component';
-import { ArtistsComponent } from './components/artists/artists.component';
-import { TracksComponent } from './components/tracks/tracks.component';
-import { RecentComponent } from './components/recent/recent.component';
-import {PlaylistsComponent} from "./components/playlists/playlists.component";
-import {LoginComponent} from "./components/login/login.component";
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ArtistsComponent } from './pages/artists/artists.component';
+import { TracksComponent } from './pages/tracks/tracks.component';
+import { RecentComponent } from './pages/recent/recent.component';
+import {PlaylistsComponent} from "./pages/playlists/playlists.component";
+import {LoginComponent} from "./pages/login/login.component";
 import { authGuard } from "./guards/auth.guard";
 import { loggedInAuthGuard } from "./guards/logged-in.auth.guard";
 

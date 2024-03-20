@@ -1,0 +1,40 @@
+<div class="space-y-10">
+  <div class="flex flex-col items-center gap-y-10 md:flex-row">
+    <h1 class="capitalize text-white text-2xl lg:text-3xl font-bold">Top Artists</h1>
+    <div class="flex-1 w-full text-white/50 flex items-center justify-around md:justify-end md:gap-x-5 lg:gap-x-10">
+<span
+  [ngClass]="selectedTimeRange === TimeRange.LONG_TERM ? 'selected' : null"
+  (click)="onTabSelect(TimeRange.LONG_TERM)"
+  class="cursor-pointer border-b border-transparent hover:border-white hover:text-white transition duration-300">All
+  Time</span>
+      <span
+        [ngClass]="selectedTimeRange === TimeRange.MEDIUM_TERM ? 'selected' : null"
+        (click)="onTabSelect(TimeRange.MEDIUM_TERM)"
+        class="cursor-pointer border-b border-transparent hover:border-white hover:text-white transition duration-300">Last
+  6 Months</span>
+      <span
+        [ngClass]="selectedTimeRange === TimeRange.SHORT_TERM ? 'selected' : null"
+        (click)="onTabSelect(TimeRange.SHORT_TERM)"
+        class="cursor-pointer border-b border-transparent hover:border-white hover:text-white transition duration-300">Last
+  4 Weeks</span>
+    </div>
+  </div>
+  <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,auto))] gap-x-5 gap-y-10">
+    <a *ngFor="let artist of topArtists$ | async" [href]="artist.url" target="_blank"
+       class="flex flex-col items-center gap-y-4">
+      <div class="relative img-container cursor-pointer">
+        <div class="relative w-36 h-36 xl:w-44 xl:h-44 rounded-full overflow-hidden">
+          <img class="object-cover" [ngSrc]="artist.image" alt="artist" fill priority>
+        </div>
+        <div class="overlay">
+          <img ngSrc="/assets/icons/info.svg" class="w-5" alt="info" height="46" width="46">
+        </div>
+      </div>
+      <a [href]="artist.url" target="_blank">
+        <p
+          class="text-white lg:text-lg cursor-pointer border-b border-transparent hover:border-white transition duration-300">
+          {{ artist.name }}</p>
+      </a>
+    </a>
+  </div>
+</div>
