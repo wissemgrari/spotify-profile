@@ -9,7 +9,7 @@
   height: 100%;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
-  inset: 0px;
+  inset: 0;
   color: rgb(255, 255, 255);
   opacity: 0;
   transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
@@ -17,4 +17,8 @@
 
 .img-container:hover .overlay {
   opacity: 1;
+}
+
+.selected {
+  @apply text-white border-b border-white;
 }

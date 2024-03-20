@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { NavigationModule } from './components/navigation/navigation.module';
 import { AppRoutingModule } from './app-routing.module';
-import { ProfileModule } from './components/profile/profile.module';
-import { ArtistsModule } from './components/artists/artists.module';
-import { TracksModule } from './components/tracks/tracks.module';
-import { RecentModule } from './components/recent/recent.module';
-import { PlaylistsModule } from "./components/playlists/playlists.module";
+import { ProfileModule } from './pages/profile/profile.module';
+import { ArtistsModule } from './pages/artists/artists.module';
+import { TracksModule } from './pages/tracks/tracks.module';
+import { RecentModule } from './pages/recent/recent.module';
+import { PlaylistsModule } from "./pages/playlists/playlists.module";
 import { HttpClientModule } from "@angular/common/http";
-import { LoginModule } from "./components/login/login.module";
+import { LoginModule } from "./pages/login/login.module";
 import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from "ngx-ui-loader";
 
 
