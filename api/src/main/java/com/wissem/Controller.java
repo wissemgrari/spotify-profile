@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -61,6 +58,26 @@ public class Controller {
     body.add("redirect_uri", redirectUri);
     body.add("code_verifier", CODE_VERIFIER);
     
+    return getTokenResponseResponseEntity(restTemplate, headers, body);
+  }
+  
+  @PostMapping("/api/v1/refresh/token")
+  public ResponseEntity<TokenResponse> getRefreshToken(@RequestBody RefreshTokenBody request) {
+    RestTemplate restTemplate = new RestTemplate();
+    // setting the headers
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+    // setting the body
+    MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
+    body.add("client_id", CLIENT_ID);
+    body.add("grant_type", "refresh_token");
+    body.add("refresh_token", request.refreshToken());
+    
+    return getTokenResponseResponseEntity(restTemplate, headers, body);
+  }
+  
+  private ResponseEntity<TokenResponse> getTokenResponseResponseEntity(
+    RestTemplate restTemplate, HttpHeaders headers, MultiValueMap<String, String> body) {
     HttpEntity<MultiValueMap<String, String>>
       entity =new HttpEntity<MultiValueMap<String, String>>(body, headers);
     ResponseEntity<TokenResponse> response = restTemplate.postForEntity(uri, entity , TokenResponse.class);
@@ -71,4 +88,7 @@ public class Controller {
 }
 
 record TokenResponse(String access_token, String token_type, int expires_in, String refresh_token, String scope) {
+}
+
+record RefreshTokenBody(String refreshToken) {
 }

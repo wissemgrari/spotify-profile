@@ -20,8 +20,8 @@ interface TokenResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private token: string = localStorage.getItem('token') || '';
-  private loggedIn = new BehaviorSubject<boolean>(this.getToken() ? true : false);
+  private token: string = JSON.parse(localStorage.getItem('user_tokens') || '{}').access_token || '';
+  private loggedIn = new BehaviorSubject<boolean>(!!this.getToken());
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -40,14 +40,15 @@ export class AuthService {
       map(response => response as TokenResponse),
       tap((response: TokenResponse) => {
         this.token = response.access_token;
-        localStorage.setItem('token', this.token);
+        localStorage.setItem('user_tokens', JSON.stringify(response));
         this.loggedIn.next(true);
       })
     );
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem('user_tokens');
+    this.token = '';
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }
@@ -65,4 +66,17 @@ export class AuthService {
     return true;
   }
 
+  refreshToken(): Observable<TokenResponse> {
+    return this.http.post('http://localhost:5000/api/v1/refresh/token', {
+      refresh_token: JSON.parse(localStorage.getItem('user_tokens') || '{}').refresh_token
+    }).pipe(
+      map(response => response as TokenResponse),
+      tap((response: TokenResponse) => {
+        this.token = response.access_token;
+        localStorage.removeItem('user_tokens')
+        localStorage.setItem('user_tokens', JSON.stringify(response));
+        this.loggedIn.next(true);
+      })
+    );
+  }
 }
