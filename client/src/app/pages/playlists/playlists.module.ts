@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {PlaylistsComponent} from './playlists.component';
-import {SharedModule} from "../../shared/shared.module";
+import { NgModule } from '@angular/core';
+import { PlaylistsComponent } from './playlists.component';
+import { SharedModule } from "../../shared/shared.module";
 import { PlaylistComponent } from '../../components/playlist/playlist.component';
-import { NgOptimizedImage } from "@angular/common";
+import { PlaylistsRoutingModule } from "./playlists-routing.module";
 
 
 @NgModule({
@@ -10,10 +10,10 @@ import { NgOptimizedImage } from "@angular/common";
     PlaylistsComponent,
     PlaylistComponent
   ],
-    imports: [
-        SharedModule,
-        NgOptimizedImage
-    ]
+  imports: [
+    SharedModule,
+    PlaylistsRoutingModule
+  ]
 })
 export class PlaylistsModule {
 }

@@ -19,11 +19,12 @@ import { DurationPipe } from "../pipes/duration.pipe";
     ButtonComponent,
     DurationPipe,
   ],
-    imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage],
+  imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage],
   exports: [
     CommonModule,
     RouterModule,
     FormsModule,
+    NgOptimizedImage,
     ArtistsComponent,
     ArtistComponent,
     TracksComponent,
@@ -32,4 +33,5 @@ import { DurationPipe } from "../pipes/duration.pipe";
     DurationPipe
   ],
 })
-export class SharedModule {}
+export class SharedModule {
+}

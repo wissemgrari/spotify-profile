@@ -1,25 +1,41 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ArtistsComponent } from './pages/artists/artists.component';
-import { TracksComponent } from './pages/tracks/tracks.component';
-import { RecentComponent } from './pages/recent/recent.component';
-import {PlaylistsComponent} from "./pages/playlists/playlists.component";
-import {LoginComponent} from "./pages/login/login.component";
-import { authGuard } from "./guards/auth.guard";
-import { loggedInAuthGuard } from "./guards/logged-in.auth.guard";
 
 const routes: Routes = [
-  { path: '', component: ProfileComponent, canActivate: [authGuard]},
-  { path: 'login', component: LoginComponent, canActivate: [loggedInAuthGuard] },
-  { path: 'artists', component: ArtistsComponent, canActivate: [authGuard] },
-  { path: 'tracks', component: TracksComponent, canActivate: [authGuard] },
-  { path: 'recent', component: RecentComponent, canActivate: [authGuard] },
-  { path: 'playlists', component: PlaylistsComponent, canActivate: [authGuard] },
+  {
+    path: '',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
+  },
+  {
+    path: 'artists',
+    loadChildren: () => import('./pages/artists/artists.module').then(m => m.ArtistsModule)
+  },
+  {
+    path: 'tracks',
+    loadChildren: () => import('./pages/tracks/tracks.module').then(m => m.TracksModule)
+  },
+  {
+    path: 'recent',
+    loadChildren: () => import('./pages/recent/recent.module').then(m => m.RecentModule)
+  },
+  {
+    path: 'playlists',
+    loadChildren: () => import('./pages/playlists/playlists.module').then(m => m.PlaylistsModule)
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
