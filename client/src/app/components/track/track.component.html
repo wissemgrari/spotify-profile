@@ -1,8 +1,8 @@
 <div class="grid grid-cols-[48px,minmax(0,1fr)] items-center gap-x-5 px-2 py-3 cursor-pointer group">
   <div class="relative w-full h-12 img-container">
-    <img [src]="track.image" class="w-full object-cover" alt="track picture">
+    <img [ngSrc]="track.image" class="object-cover" fill alt="track picture">
     <a class="overlay" [href]="track.url" target="_blank">
-      <img src="/assets/icons/info.svg" class="w-5" alt="info">
+      <img ngSrc="/assets/icons/info.svg" class="w-5" alt="info" height="46" width="46">
     </a>
   </div>
   <div class="flex justify-between text-white/50">

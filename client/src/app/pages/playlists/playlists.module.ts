@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {PlaylistsComponent} from './playlists.component';
 import {SharedModule} from "../../shared/shared.module";
 import { PlaylistComponent } from '../../components/playlist/playlist.component';
+import { NgOptimizedImage } from "@angular/common";
 
 
 @NgModule({
@@ -9,9 +10,10 @@ import { PlaylistComponent } from '../../components/playlist/playlist.component'
     PlaylistsComponent,
     PlaylistComponent
   ],
-  imports: [
-    SharedModule
-  ]
+    imports: [
+        SharedModule,
+        NgOptimizedImage
+    ]
 })
 export class PlaylistsModule {
 }

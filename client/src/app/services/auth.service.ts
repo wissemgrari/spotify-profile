@@ -68,7 +68,7 @@ export class AuthService {
 
   refreshToken(): Observable<TokenResponse> {
     return this.http.post('http://localhost:5000/api/v1/refresh/token', {
-      refresh_token: JSON.parse(localStorage.getItem('user_tokens') || '{}').refresh_token
+      refreshToken: JSON.parse(localStorage.getItem('user_tokens') || '{}').refresh_token
     }).pipe(
       map(response => response as TokenResponse),
       tap((response: TokenResponse) => {

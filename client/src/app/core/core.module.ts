@@ -4,8 +4,8 @@ import { NgModule } from "@angular/core";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { TokenInterceptor } from "../interceptors/token.interceptor";
 import { AuthService } from "../services/auth.service";
-import { ProfileService } from "../services/profile.service";
 import { ArtistService } from "../services/artist.service";
+import { PlaylistService } from "../services/playlist.service";
 
 @NgModule({
   providers: [

@@ -1,0 +1,3 @@
+.selected {
+  @apply text-white border-b border-white;
+}

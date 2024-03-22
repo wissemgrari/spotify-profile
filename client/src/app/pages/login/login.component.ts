@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
-  selector: 'login',
+  selector: 'login-page',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

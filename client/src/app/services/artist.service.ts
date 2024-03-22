@@ -22,7 +22,7 @@ export class ArtistService {
         return response.items.map((item: any) => {
           return {
             name: item.name,
-            image: item.images[0].url,
+            image: item.images[2].url,
             url: item.external_urls.spotify
           };
         });

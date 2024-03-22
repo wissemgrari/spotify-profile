@@ -7,7 +7,6 @@ export class Profile {
   image: string;
   id: string;
 
-
   constructor(display_name: string, email: string, profile_url: string, followers: number, following: number, image: string | null, id: string) {
     this.display_name = display_name;
     this.email = email;

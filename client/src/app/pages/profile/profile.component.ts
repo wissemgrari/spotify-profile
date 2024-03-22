@@ -10,7 +10,7 @@ import { Track } from "../../models/track.model";
 import { TrackService } from "../../services/track.service";
 
 @Component({
-  selector: 'app-profile',
+  selector: 'profile-page',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })

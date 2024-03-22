@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { Artist } from "../../models/artist.model";
 import { ArtistService, TimeRange } from "../../services/artist.service";
-import { HttpClient } from "@angular/common/http";
 import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @Component({
-  selector: 'app-artists',
+  selector: 'artists-page',
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.css']
 })
@@ -18,7 +17,7 @@ export class ArtistsComponent implements OnInit {
   isLoading: boolean = true;
   topArtists$!: Observable<Artist[] | undefined>;
 
-  constructor(private artistService: ArtistService, private http: HttpClient, private ngxService: NgxUiLoaderService) {
+  constructor(private artistService: ArtistService, private ngxService: NgxUiLoaderService) {
   }
 
   ngOnInit(): void {

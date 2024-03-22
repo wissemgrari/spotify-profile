@@ -2,5 +2,5 @@
   <h1 class="capitalize text-white text-2xl lg:text-3xl font-bold">Your playlists</h1>
 </div>
 <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,auto))] gap-x-8 gap-y-10">
-  <playlist *ngFor="let playlist of playlists" [playlist]="playlist" />
+  <playlist *ngFor="let playlist of playlists$ | async" [playlist]="playlist" />
 </div>

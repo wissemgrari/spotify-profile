@@ -41,7 +41,7 @@ public class Controller {
     // send the code verifier to the frontend
     
     return new ResponseEntity<>(
-      Map.of("url", authUrlWithParams, "code_verifier", CODE_VERIFIER), HttpStatus.OK);
+      Map.of("url", authUrlWithParams), HttpStatus.OK);
   }
   
   @GetMapping("/api/v1/token")
@@ -69,15 +69,14 @@ public class Controller {
     headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
     // setting the body
     MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
-    body.add("client_id", CLIENT_ID);
     body.add("grant_type", "refresh_token");
     body.add("refresh_token", request.refreshToken());
+    body.add("client_id", CLIENT_ID);
     
     return getTokenResponseResponseEntity(restTemplate, headers, body);
   }
   
-  private ResponseEntity<TokenResponse> getTokenResponseResponseEntity(
-    RestTemplate restTemplate, HttpHeaders headers, MultiValueMap<String, String> body) {
+  private ResponseEntity<TokenResponse> getTokenResponseResponseEntity(RestTemplate restTemplate, HttpHeaders headers, MultiValueMap<String, String> body) {
     HttpEntity<MultiValueMap<String, String>>
       entity =new HttpEntity<MultiValueMap<String, String>>(body, headers);
     ResponseEntity<TokenResponse> response = restTemplate.postForEntity(uri, entity , TokenResponse.class);

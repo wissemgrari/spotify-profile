@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Artist } from 'src/app/models/artist.model';
 
 @Component({
-  selector: 'top-artists',
-  templateUrl: './top-artists.component.html',
-  styleUrls: ['./top-artists.component.css']
+  selector: 'artists',
+  templateUrl: './artists.component.html',
+  styleUrls: ['./artists.component.css']
 })
-export class TopArtistsComponent {
+export class ArtistsComponent {
   @Input() artists: Artist[] | undefined | null;
 }

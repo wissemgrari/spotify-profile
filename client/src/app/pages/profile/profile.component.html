@@ -30,7 +30,7 @@
         <app-button title="see more"/>
         </a>
       </div>
-      <top-artists [artists]="topArtists$ | async" />
+      <artists [artists]="topArtists$ | async" />
     </div>
     <!-- Top Tracks -->
     <div class="flex flex-col gap-y-5">
@@ -40,7 +40,7 @@
         <app-button title="see more"/>
         </a>
       </div>
-      <top-tracks [tracks]="topTracks$ | async" />
+      <tracks [tracks]="topTracks$ | async" />
     </div>
   </div>
 </div>
