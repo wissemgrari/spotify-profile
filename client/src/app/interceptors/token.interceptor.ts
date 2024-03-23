@@ -30,8 +30,12 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   addToken(request: HttpRequest<any>, token: string) {
+    let url = request.url;
+    if (!url.startsWith(this.baseURL)) {
+      url = `${this.baseURL}${request.url}`;
+    }
     return request.clone({
-      url: `${this.baseURL}${request.url}`,
+      url: url,
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
