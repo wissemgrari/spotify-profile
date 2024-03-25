@@ -14,6 +14,7 @@ const routes: Routes = [
     path: 'artists',
     loadChildren: () => import('./pages/artists/artists.module').then(m => m.ArtistsModule)
   },
+
   {
     path: 'tracks',
     loadChildren: () => import('./pages/tracks/tracks.module').then(m => m.TracksModule)

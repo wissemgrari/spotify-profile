@@ -21,6 +21,7 @@ export class ArtistService {
       map((response: any) => {
         return response.items.map((item: any) => {
           return {
+            id: item.id,
             name: item.name,
             image: item.images[2].url,
             url: item.external_urls.spotify
@@ -39,11 +40,29 @@ export class ArtistService {
       map((response: any) => {
         return response.items.map((item: any) => {
           return {
+            id: item.id,
             name: item.name,
             image: item.images[0].url,
             url: item.external_urls.spotify
           };
         });
+      }),
+      catchError((error) => {
+        console.error(error);
+        return of(undefined);
+      })
+    )
+  }
+
+  getArtist(id: string): Observable<Artist | undefined> {
+    return this.http.get<Artist>(`/artists/${id}`).pipe(
+      map((response: any) => {
+        return {
+          id: response.id,
+          name: response.name,
+          image: response.images[0].url,
+          url: response.external_urls.spotify
+        };
       }),
       catchError((error) => {
         console.error(error);
