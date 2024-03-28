@@ -19,10 +19,10 @@
   4 Weeks</span>
     </div>
   </div>
-  <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,auto))] gap-x-5 gap-y-10">
+  <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(160px,auto))] gap-x-10 gap-y-10">
     <a *ngFor="let artist of topArtists$ | async" [routerLink]="artist.id" class="flex flex-col items-center gap-y-4">
       <div class="relative img-container cursor-pointer">
-        <div class="relative w-36 h-36 xl:w-44 xl:h-44 rounded-full overflow-hidden">
+        <div class="relative w-40 h-40 md:w-32 md:h-32 lg:w-44 lg:h-44 xl:w-48 xl:h-48 rounded-full overflow-hidden">
           <img class="object-cover" [ngSrc]="artist.image" alt="artist" fill priority>
         </div>
         <div class="overlay">

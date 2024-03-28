@@ -61,7 +61,10 @@ export class ArtistService {
           id: response.id,
           name: response.name,
           image: response.images[0].url,
-          url: response.external_urls.spotify
+          url: response.external_urls.spotify,
+          followers: response.followers.total,
+          popularity: response.popularity,
+          genres: response.genres,
         };
       }),
       catchError((error) => {
