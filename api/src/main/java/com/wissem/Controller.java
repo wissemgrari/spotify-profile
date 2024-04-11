@@ -38,8 +38,6 @@ public class Controller {
       .queryParam("code_challenge", codeChallenge)
       .queryParam("redirect_uri", redirectUri)
       .toUriString();
-    // send the code verifier to the frontend
-    
     return new ResponseEntity<>(
       Map.of("url", authUrlWithParams), HttpStatus.OK);
   }
@@ -57,7 +55,6 @@ public class Controller {
     body.add("code", code);
     body.add("redirect_uri", redirectUri);
     body.add("code_verifier", CODE_VERIFIER);
-    
     return getTokenResponseResponseEntity(restTemplate, headers, body);
   }
   
@@ -72,7 +69,6 @@ public class Controller {
     body.add("grant_type", "refresh_token");
     body.add("refresh_token", request.refreshToken());
     body.add("client_id", CLIENT_ID);
-    
     return getTokenResponseResponseEntity(restTemplate, headers, body);
   }
   

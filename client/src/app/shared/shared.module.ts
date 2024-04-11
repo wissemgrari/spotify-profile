@@ -8,6 +8,7 @@ import { TracksComponent } from '../components/tracks/tracks.component';
 import { ArtistsComponent } from '../components/artists/artists.component';
 import { ArtistComponent } from '../components/artist/artist.component';
 import { DurationPipe } from "../pipes/duration.pipe";
+import { PitchPipe } from "../pipes/pitch.pipe";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DurationPipe } from "../pipes/duration.pipe";
     TrackComponent,
     ButtonComponent,
     DurationPipe,
+    PitchPipe
   ],
   imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage],
   exports: [
@@ -30,7 +32,8 @@ import { DurationPipe } from "../pipes/duration.pipe";
     TracksComponent,
     TrackComponent,
     ButtonComponent,
-    DurationPipe
+    DurationPipe,
+    PitchPipe
   ],
 })
 export class SharedModule {

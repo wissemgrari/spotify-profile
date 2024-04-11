@@ -1,13 +1,11 @@
-<div class="flex items-center gap-x-5 px-2 py-3 cursor-pointer group">
-  <div class="relative img-container">
-    <div class="w-12 h-12 rounded-full">
+<a [routerLink]="['/artists', artist.id]" class="flex items-center gap-x-5 px-2 py-3 cursor-pointer group">
+  <div class="relative img-container rounded-full overflow-hidden">
+    <div class="w-12 h-12">
       <img [ngSrc]="artist.image" fill loading="lazy" alt="artist picture" class="object-cover">
     </div>
-    <a class="overlay" [href]="artist.url" target="_blank">
+    <div class="overlay">
       <img ngSrc="/assets/icons/info.svg" class="w-5" alt="info" height="46" width="46">
-    </a>
+    </div>
   </div>
-  <a [href]="artist.url" target="_blank">
-    <p class="text-white group-hover:underline">{{ artist.name }}</p>
-  </a>
-</div>
+  <p class="text-white group-hover:underline">{{ artist.name }}</p>
+</a>

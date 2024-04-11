@@ -1,21 +1,21 @@
-<div class="grid grid-cols-[48px,minmax(0,1fr)] items-center gap-x-5 px-2 py-3 cursor-pointer group">
+<a [routerLink]="['/tracks', track.id]" class="grid grid-cols-[48px,minmax(0,1fr)] items-center gap-x-5 px-2 py-3 cursor-pointer group">
   <div class="relative w-full h-12 img-container">
     <img [ngSrc]="track.image" class="object-cover" fill alt="track picture">
-    <a class="overlay" [href]="track.url" target="_blank">
+    <div class="overlay">
       <img ngSrc="/assets/icons/info.svg" class="w-5" alt="info" height="46" width="46">
-    </a>
+    </div>
   </div>
   <div class="flex justify-between text-white/50">
     <div class="w-full">
       <div class="flex items-center justify-between">
-        <a [href]="track.url" target="_blank"><span class="block text-base text-white group-hover:underline">{{ track.name }}</span></a>
-        <span class="text-xs md:text-sm">{{track.duration | duration}}</span>
+        <span class="block text-base text-white group-hover:underline">{{ track.name }}</span>
+        <span class="text-xs md:text-sm">{{ track.duration | duration }}</span>
       </div>
       <span class="block text-sm overflow-hidden whitespace-nowrap text-ellipsis">
-        {{track.artist}}
+        {{ track.artist }}
         <span class="text-xs px-1">&bull;</span>
         {{ track.album }}
       </span>
     </div>
   </div>
-</div>
+</a>
