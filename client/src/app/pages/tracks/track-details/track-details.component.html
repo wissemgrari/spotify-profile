@@ -19,12 +19,13 @@
         {{ track.year }}
       </p>
       <a class="mt-5" [href]="track.url" target="_blank">
-      <app-button title="play on spotify" variant="filled" />
+        <app-button title="play on spotify" variant="filled"/>
       </a>
     </div>
   </div>
-<!--  Track analysis -->
-  <div *ngIf="trackAnalysis$ | async as trackAnalysis" class="mt-16 grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] sm:grid-cols-[repeat(5,minmax(100px,1fr))] border-t border-l border-[#404040]">
+  <!--  Track analysis -->
+  <div *ngIf="trackAnalysis$ | async as trackAnalysis"
+       class="mt-16 grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] sm:grid-cols-[repeat(5,minmax(100px,1fr))] border-t border-l border-[#404040]">
     <div class="py-4 px-2 border-b border-r border-[#404040] text-white/80 text-center">
       <h4 class="text-2xl font-medium capitalize">{{ track.duration | duration }}</h4>
       <p class="text-xs font-light capitalize">duration</p>
@@ -66,6 +67,9 @@
       <p class="text-xs font-light capitalize">segments</p>
     </div>
   </div>
-  <h2 class="my-10 text-white text-center font-medium text-lg">Audio Features</h2>
-<!--  Feature chart goes here -->
+  <h2 class="mt-8 text-white text-center font-medium text-lg">Audio Features</h2>
+  <!--  Feature chart goes here -->
+  <div class="w-full max-w-3xl mx-auto mt-5">
+    <audio-feature></audio-feature>
+  </div>
 </div>

@@ -9,6 +9,7 @@ import { ArtistsComponent } from '../components/artists/artists.component';
 import { ArtistComponent } from '../components/artist/artist.component';
 import { DurationPipe } from "../pipes/duration.pipe";
 import { PitchPipe } from "../pipes/pitch.pipe";
+import { BaseChartDirective, provideCharts, withDefaultRegisterables } from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -21,12 +22,13 @@ import { PitchPipe } from "../pipes/pitch.pipe";
     DurationPipe,
     PitchPipe
   ],
-  imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage],
+  imports: [CommonModule, RouterModule, FormsModule, NgOptimizedImage, BaseChartDirective],
   exports: [
     CommonModule,
     RouterModule,
     FormsModule,
     NgOptimizedImage,
+    BaseChartDirective,
     ArtistsComponent,
     ArtistComponent,
     TracksComponent,
@@ -35,6 +37,7 @@ import { PitchPipe } from "../pipes/pitch.pipe";
     DurationPipe,
     PitchPipe
   ],
+  providers: [provideCharts(withDefaultRegisterables())],
 })
 export class SharedModule {
 }
