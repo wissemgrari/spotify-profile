@@ -10,4 +10,5 @@ import { AudioFeature } from "../../components/audio-feature/audio-feature";
   imports: [SharedModule, TracksRoutingModule],
   exports: [TracksComponent],
 })
-export class TracksModule {}
+export class TracksModule {
+}
