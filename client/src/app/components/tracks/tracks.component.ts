@@ -8,5 +8,4 @@ import { Track } from 'src/app/models/track.model';
 })
 export class TracksComponent {
   @Input() tracks: Track[] | undefined | null;
-
 }

@@ -1,20 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from "chart.js";
+import { TrackAudioFeature } from "../../models/track-audio-feature.model";
+import { Observable } from "rxjs";
+import { TrackService } from "../../services/track.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'audio-feature',
   templateUrl: './audio-feature.html',
   styleUrls: ['./audio-feature.component.css']
 })
-export class AudioFeature {
-  data = [0.769, 0.854, 0.554, 0, 0.0749, 0.172, 0.272]; // this is dump data used for testing purpose and will be replaced with actual data
-  labels = ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence'];
+export class AudioFeature implements OnInit {
+  id = '';
+  isLoading: boolean = true;
 
+  constructor(private route: ActivatedRoute, private trackService: TrackService) {
+    this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+  }
+
+  ngOnInit(): void {
+   this.trackService.getTrackAudioFeature(this.id).subscribe((response: TrackAudioFeature | undefined) => {
+      if(response) {
+        this.updateChartData(response);
+      }
+      this.isLoading = false;
+    })
+
+  }
+
+  data: number[] = [];
+  labels = ['acousticness', 'danceability', 'energy', 'instrumentalness', 'liveness', 'speechiness', 'valence'];
+  barChartLegend = false;
   barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: this.labels,
     datasets: [
       {
-        data: this.data,
+        data: [],
         backgroundColor: [
           'rgba(255, 99, 132, 0.3)',
           'rgba(255, 159, 64, 0.3)',
@@ -39,7 +62,8 @@ export class AudioFeature {
   };
 
   barChartOptions: ChartConfiguration<'bar'>['options'] = {
-    responsive: false,
+    responsive: true,
+    maintainAspectRatio: false,
     layout: {
       padding: {
         left: 0,
@@ -49,16 +73,16 @@ export class AudioFeature {
       },
     },
     scales: {
-     x: {
-       grid: {
-         color: 'rgba(255, 255, 255, 0.3)',
-       },
-       ticks: {
-         font: {
-           size: 12
-         }
-       },
-     },
+      x: {
+        grid: {
+          color: 'rgba(255, 255, 255, 0.3)',
+        },
+        ticks: {
+          font: {
+            size: 12
+          }
+        },
+      },
       y: {
         grid: {
           color: 'rgba(255, 255, 255, 0.3)',
@@ -72,4 +96,15 @@ export class AudioFeature {
     },
   }
 
+  updateChartData(data: TrackAudioFeature): void {
+      this.barChartData.datasets[0].data = [
+       data.acousticness,
+        data.danceability,
+        data.energy,
+        data.instrumentalness,
+        data.liveness,
+        data.speechiness,
+        data.valence,
+      ];
+  }
 }

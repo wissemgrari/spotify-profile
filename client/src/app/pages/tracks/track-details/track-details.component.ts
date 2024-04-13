@@ -39,4 +39,5 @@ export class TrackDetailsComponent implements OnInit {
     return this.trackService.getTrackAnalysis(this.id);
   }
 
+
 }

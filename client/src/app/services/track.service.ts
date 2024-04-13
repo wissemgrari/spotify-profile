@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from "rxjs";
 import { Track } from "../models/track.model";
 import { TrackAnalysis } from "../models/track-analysis.model";
+import { TrackAudioFeature } from "../models/track-audio-feature.model";
 
 export enum TimeRange {
   LONG_TERM = 'long_term',
@@ -113,6 +114,26 @@ export class TrackService {
           beats: item.beats.length,
           sections: item.sections.length,
           segments: item.segments.length,
+        };
+      }),
+      catchError((error) => {
+        console.error(error);
+        return of(undefined);
+      })
+    )
+  }
+
+  getTrackAudioFeature(id: string): Observable<TrackAudioFeature | undefined> {
+    return this.http.get<TrackAnalysis>(`/audio-features/${id}`).pipe(
+      map((response: any) => {
+        return {
+          acousticness: response.acousticness,
+          danceability: response.danceability,
+          energy: response.energy,
+          instrumentalness: response.instrumentalness,
+          liveness: response.liveness,
+          speechiness: response.speechiness,
+          valence: response.valence,
         };
       }),
       catchError((error) => {
