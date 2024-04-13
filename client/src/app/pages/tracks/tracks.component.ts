@@ -16,16 +16,20 @@ export class TracksComponent implements OnInit {
   isLoading: boolean = true;
   topTracks$!: Observable<Track[] | undefined>;
 
-  constructor(private trackService: TrackService, private ngxService: NgxUiLoaderService) {}
+  constructor(private trackService: TrackService, private ngxService: NgxUiLoaderService) {
+  }
+
   ngOnInit(): void {
     this.ngxService.startLoader("in-app-loader");
     this.topTracks$ = this.getTopTracks();
     this.isLoading = false;
     this.ngxService.stopLoader("in-app-loader");
   }
+
   getTopTracks(): Observable<Track[] | undefined> {
     return this.trackService.getTopTracks(this.selectedTimeRange);
   }
+
   onTabSelect(term: TimeRange) {
     this.selectedTimeRange = term;
     this.topTracks$ = this.trackService.getTopTracks(term);

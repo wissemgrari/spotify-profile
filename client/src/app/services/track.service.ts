@@ -63,7 +63,7 @@ export class TrackService {
       map((response: any) => {
         return response.items.map((item: any) => {
           return {
-            id: item.id,
+            id: item.track.id,
             name: item.track.name,
             artist: item.track.artists.map((artist: any) => artist.name).join(', '),
             album: item.track.album.name,
