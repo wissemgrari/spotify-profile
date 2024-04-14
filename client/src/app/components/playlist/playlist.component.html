@@ -1,5 +1,5 @@
-<a [href]="playlist.url" target="_blank" class="flex flex-col items-center justify-center text-white">
+<a [routerLink]="playlist.id" class="flex flex-col items-center justify-center text-white">
   <img [src]="playlist.cover" alt="cover" class="mb-5 w-full object-cover cursor-pointer hover:brightness-50 transition duration-300">
-  <a [href]="playlist.url" target="_blank"><p class="playlist-name text-center mb-1">{{playlist.name}}</p></a>
-   <p class="text-xs opacity-60 font-light uppercase">{{playlist.tracks}} Tracks</p>
+  <p class="playlist-name text-center mb-1">{{ playlist.name }}</p>
+  <p class="text-xs opacity-60 font-light uppercase">{{ playlist.tracks }} Tracks</p>
 </a>

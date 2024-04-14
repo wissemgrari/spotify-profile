@@ -7,7 +7,7 @@ import { NgxUiLoaderService } from "ngx-ui-loader";
 import { TrackAnalysis } from "../../../models/track-analysis.model";
 
 @Component({
-  selector: 'app-track-details',
+  selector: 'track-details',
   templateUrl: './track-details.component.html',
   styleUrls: ['./track-details.component.css']
 })

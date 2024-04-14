@@ -1,0 +1,22 @@
+<div class="h-full w-full flex flex-col gap-y-10 md:flex-row sm:gap-x-10 lg:gap-x-20" *ngIf="playlist">
+  <div class="flex flex-col items-center gap-y-5">
+    <img class="!relative object-contain w-full !h-auto max-w-[280px] overflow-hidden" [ngSrc]="playlist.cover" fill alt="cover" priority>
+    <div class="w-full flex flex-col items-center gap-y-1">
+      <p
+        class="text-white text-2xl sm:text-3xl md:text-4xl font-bold">
+        {{ playlist.name }}
+      </p>
+      <p
+        class="text-white/70 text-center text-sm md:text-base font-light">
+        By {{ playlist.owner }}
+      </p>
+      <p class="text-white text-base">
+        {{ playlist.tracks }} tracks
+      </p>
+      <a class="mt-5">
+        <app-button title="get recommendations" variant="filled"/>
+      </a>
+    </div>
+  </div>
+  <tracks class="w-full" [tracks]="tracks"/>
+</div>

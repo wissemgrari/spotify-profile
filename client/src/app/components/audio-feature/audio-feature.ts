@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from "chart.js";
 import { TrackAudioFeature } from "../../models/track-audio-feature.model";
-import { Observable } from "rxjs";
 import { TrackService } from "../../services/track.service";
 import { ActivatedRoute } from "@angular/router";
 
@@ -21,8 +20,8 @@ export class AudioFeature implements OnInit {
   }
 
   ngOnInit(): void {
-   this.trackService.getTrackAudioFeature(this.id).subscribe((response: TrackAudioFeature | undefined) => {
-      if(response) {
+    this.trackService.getTrackAudioFeature(this.id).subscribe((response: TrackAudioFeature | undefined) => {
+      if (response) {
         this.updateChartData(response);
       }
       this.isLoading = false;
@@ -97,14 +96,14 @@ export class AudioFeature implements OnInit {
   }
 
   updateChartData(data: TrackAudioFeature): void {
-      this.barChartData.datasets[0].data = [
-       data.acousticness,
-        data.danceability,
-        data.energy,
-        data.instrumentalness,
-        data.liveness,
-        data.speechiness,
-        data.valence,
-      ];
+    this.barChartData.datasets[0].data = [
+      data.acousticness,
+      data.danceability,
+      data.energy,
+      data.instrumentalness,
+      data.liveness,
+      data.speechiness,
+      data.valence,
+    ];
   }
 }

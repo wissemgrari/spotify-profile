@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from "rxjs";
 import { Playlist } from "../models/playlist.model";
+import { Track } from "../models/track.model";
 
 
 @Injectable({
@@ -16,8 +17,10 @@ export class PlaylistService {
       map((response: any) => {
         return response.items.map((item: any) => {
           return {
+            id: item.id,
             name: item.name,
             tracks: item.tracks.total,
+            owner: item.owner.display_name,
             cover: item.images[0].url,
             url: item.external_urls.spotify
           };
@@ -29,4 +32,38 @@ export class PlaylistService {
       })
     )
   }
+
+  getPlaylist(id: string): Observable<{ playlist: Playlist, tracks: Track[] } | undefined> {
+    return this.http.get<any>(`/playlists/${id}`).pipe(
+      map((response: any) => {
+        let playlist: Playlist = {
+          id: response.id,
+          name: response.name,
+          tracks: response.tracks.total,
+          owner: response.owner.display_name,
+          cover: response.images[0].url,
+          url: response.external_urls.spotify
+        };
+
+        let tracks: Track[] = response.tracks.items.map(({ track }: any) => {
+          return {
+            id: track.id,
+            name: track.name,
+            artist: track.artists.map((artist: any) => artist.name).join(', '),
+            album: track.album.name,
+            duration: track.duration_ms,
+            image: track.album.images[2].url,
+            url: track.external_urls.spotify
+          }
+        });
+
+        return { playlist, tracks };
+      }),
+      catchError((error) => {
+        console.error(error);
+        return of(undefined);
+      })
+    );
+  }
+
 }
