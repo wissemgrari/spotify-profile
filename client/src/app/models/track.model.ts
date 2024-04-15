@@ -8,7 +8,9 @@ export class Track {
   url: string;
   year?: string;
   popularity?: number;
-  constructor(id: string, name: string, artist: string, album: string, duration: number, image: string, url: string, year?: string, popularity?: number) {
+  uri?: string;
+
+  constructor(id: string, name: string, artist: string, album: string, duration: number, image: string, url: string, year?: string, popularity?: number, uri?: string) {
     this.id = id;
     this.name = name;
     this.artist = artist;
@@ -18,5 +20,6 @@ export class Track {
     this.url = url;
     this.year = year;
     this.popularity = popularity;
+    this.uri = uri;
   }
 }
