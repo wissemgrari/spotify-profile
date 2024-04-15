@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { PlaylistsComponent } from "./playlists.component";
 import { authGuard } from "../../guards/auth.guard";
 import { PlaylistDetailsComponent } from "./playlist-details/playlist-details.component";
+import { RecommendationComponent } from "./recommendation/recommendation.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
     path: ':id', component: PlaylistDetailsComponent,
     canActivate: [authGuard]
   },
+  {
+    path: ':id/recommendation', component: RecommendationComponent,
+    canActivate: [authGuard]
+  }
 ];
 
 @NgModule({
