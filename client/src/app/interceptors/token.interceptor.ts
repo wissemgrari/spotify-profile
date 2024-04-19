@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { BehaviorSubject, catchError, filter, Observable, switchMap, take, throwError } from "rxjs";
 import { AuthService } from "../services/auth.service";
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   private baseURL: string = 'https://api.spotify.com/v1';
-  private apiURL: string = 'http://localhost:5000/api/v1';
+  private apiURL: string = environment.apiURL;
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
