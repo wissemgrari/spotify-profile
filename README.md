@@ -17,15 +17,20 @@ This project uses both Java and Node.js. Go check them out if you don't have the
 ```bash
 git clone https://github.com/wissemgrari/spotify-profile.git
 ```
-2. Install the dependencies:
+2. Create a Spotify Developer account and create a new application to get your client ID and client secret.
+3. Rename `.env.example` file in the `api` directory to `.env` and fill-it with your client ID and client secret
+4. Add `http://localhost:4200/login` as a redirect URI in your Spotify application settings.
+5. Install the dependencies:
 ```bash
 cd spotify-profile
 npm install
 mvn install
 ```
-3. Create a Spotify Developer account and create a new application to get your client ID and client secret.
-4. Rename `.env.example` file in the `api` directory to `.env` and fill-it with your client ID and client secret
-5. Add `http://localhost:4200/login` as a redirect URI in your Spotify application settings.
+
+* If you have docker installed, you can skip the installation of the dependencies and run the following command to build the project and start the client and server simultaneously:
+```bash
+docker-compose up
+```
 
 ## Usage
 To start the server, run the following command:
