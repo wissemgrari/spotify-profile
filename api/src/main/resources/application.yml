@@ -1,6 +1,11 @@
 server:
   port: 5000
 
-spring:
-  profiles:
-    active: dev
+cors:
+  allowed-origins: "http://localhost:4200"
+
+spotify:
+  redirect_uri: "http://localhost:4200/login"
+  code_verifier: 1WsKdLhdVqSxZy6U8pOWLEfedyLp9kG1SXGPR3dMBD0myA9C5kJiCXM9axaVPoZL
+  client_id: ${SPOTIFY_CLIENT_ID}
+  client_secret: ${SPOTIFY_CLIENT_SECRET}

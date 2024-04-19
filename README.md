@@ -24,7 +24,7 @@ npm install
 mvn install
 ```
 3. Create a Spotify Developer account and create a new application to get your client ID and client secret.
-4. Rename `.env.example` file in the `client` directory to `.env` and fill-it with your client ID and client secret
+4. Rename `.env.example` file in the `api` directory to `.env` and fill-it with your client ID and client secret
 5. Add `http://localhost:4200/login` as a redirect URI in your Spotify application settings.
 
 ## Usage
