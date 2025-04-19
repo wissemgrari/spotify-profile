@@ -2,7 +2,7 @@
 
 Spotify Profile is a web application that allows users to visualize their personalized Spotify data. It is built with Angular, Spring Boot, and the Spotify Web API. The application provides insights into user's playlists, tracks, and audio features.
 
-![image.png](https://res.cloudinary.com/dcyl5hb7c/image/upload/v1713131720/ewussv41i1pddshb892i.png)
+![image.png](/screenshot/profile.png)
 
 ## Table of Contents
 - [Installation](#installation)
